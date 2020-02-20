@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body width="100%">
+    <heade>何かを入れるだけ</h1></header>
+    <div width="100%">
+        <div style="width:50%;float:left;">
+            <textarea id="left"rows="8" cols="40">      var s = '';
+      for (var i = 0; i < COUNT; ++i) {
+        s += i;
+      }
+      return s;
+</textarea>
+        </div>
+        <div style="width:50%;float:right;">
+            <textarea id="right" rows="8" cols="40">      var arr = [];
+      for (var i = 0; i < COUNT; ++i) {
+        arr.push(String(i));
+      }
+      return arr.join();
+</textarea>
+        </div>
+        <input type="button" value="実行" onclick="aaa()">
+    </div>
+    <script>
+    function aaa() {
+    function measurePerf(func) {
+      var start = performance.now();
+      func();
+      return (performance.now() - start);
+    }
+    var COUNT = 10000;
+    const fn1=eval("()=>{"+document.getElementById('left').value+"}")
+    const fn2=eval("()=>{"+document.getElementById('right').value+"}")
+
+    document.write("1:" + measurePerf(fn1));
+    document.write("<br>");
+    document.write("2:" + measurePerf(fn2));
+    };
+
+    </script>
+</body>
+</html>
